@@ -39,21 +39,50 @@ Arabic, German, Greek, English, Spanish, French, Hebrew, Hindi, Hungarian, Itali
 * Copy the CIFence.php file into the ./application/libraries folder.
 * If the required language is not added to the languages array, please add it to it. Please, follow the pattern of the other preset language datasets.
 * Provide the short code of the required language to the configuration array:
-e.g ```$this->_config = ['language' => 'hu'];```
+
+```
+$this->_config = ['language' => 'hu'];
+```
+
 * Load the library into your controller:
-```$this->load->library('cifence);```
+
+```
+$this->load->library('cifence);
+```
+
 * In case of using the core form_validation library of CI set up a validation rule, which will return the error alert of the lib given in the language dataset (controller).
-e.g ```$this->form_validation->set_rules('captcha', 'answer', ['required', ['captcha_callable', [$this->cifence, 'check']]], ['captcha_callable' => $this->cifence->failMsg]);```
+
+```
+$this->form_validation->set_rules('captcha', 'answer', ['required', ['captcha_callable', [$this->cifence, 'check']]], ['captcha_callable' => $this->cifence->failMsg]);
+```
+
 * Add a text type input field to your form (view). Please note, that the field must have a placeholder attribute, which displays the CAPTCHA question in the required language:
-e.g ```<input type="text" name="captcha" value="" placeholder="<?php echo $this->cifence->placeholder; ?>" />```
+
+```
+<input type="text" name="captcha" value="" placeholder="<?php echo $this->cifence->placeholder; ?>" />
+```
+
 The name attribute of the field can be set to any value.
+
 * In case of using a honeypot, add a hidden input field to the form (view).
-e.g ```<input type="text" name="honeypot" id="honeypot" autocomplete="off" value="" />```
+
+```
+<input type="text" name="honeypot" id="honeypot" autocomplete="off" value="" />
+```
+
 The name attribute of the field can be set to any value.
+
 * Within your controller call the check() method of the lib and pass the value(s) of the CAPTCHA and optionally the honeypot fields to it as arguments (CAPTCHA is the first argument, while honeypot is the second.) If honeypot is not required the second argument is not needed.
-```$this->cifence->check($this->input->post('captcha'), $this->input->post('honeypot'));```
+
+```
+$this->cifence->check($this->input->post('captcha'), $this->input->post('honeypot'));
+```
+
 * Add an `if-else` condition to your controller, which holds the submit code of the form (in case of the CAPTCHA's verification) and the code planned to be run at CAPTCHA failure. As a default the lib returns an error message in case of failure, which can be displayed as the part of the form validation.
-e.g ```if($this->cifence->passed) { // Your submit code } else { // Failure action }```
+
+```
+if($this->cifence->passed) { // Your submit code } else { // Failure action }
+```
 
 ## LICENSE
 
