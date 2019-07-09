@@ -52,7 +52,7 @@ class CIFence {
          * IMPORTANT: In case of providing a language code please use only the short form of it. 
          * (e.g `en` stands for all English dialects and do not use `en-US`) 
          *  
-         * In the lack of the language code the lib tries  to obtain the primary language of the userclient 
+         * In the lack of the language code the lib tries  to obtain the primary language of the useragent 
          * and use the relating language code if it is added to the `language` array.
          * In case of missing config language code and/or language array data the default language is English.   
          */
