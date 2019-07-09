@@ -26,7 +26,7 @@ The library also includes a honeypot feature, which is optional.
 * The array of languages can be shortened or expanded according to the requirements of the given application.
 * Preset languages are as follows:
 Arabic, German, Greek, English, Spanish, French, Hebrew, Hindi, Hungarian, Italian, Japanese, Korean, Polish, Portugese, Russian, Turkish, Ukrainian, Chinese
-* In order to set the used language the short HTML ISO code (e.g `en` but not `en-US`; <https://www.w3schools.com/tags/ref_language_codes.asp>) must be given in the language property of the configuration array. In the lack of the code the lib tries to determine and use the primary language of the userclient (browser) provided that the relating language pack had been added to the array of languages. Failing to do that the default language is English.
+* In order to set the used language the short HTML ISO code (e.g `en` but not `en-US`; <https://www.w3schools.com/tags/ref_language_codes.asp>) must be given in the language property of the configuration array. In the lack of the code the lib tries to determine and use the primary language of the useragent (browser) provided that the relating language pack had been added to the array of languages. Failing to do that the default language is English.
 * IMPORTANT: Please note, that the NAMES OF THE DAYS both in the native and English languages are in LOWERCASE format. This principle has to be followed when adding any new language dataset.
 
 ### Honeypot
